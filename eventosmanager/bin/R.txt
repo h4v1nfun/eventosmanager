@@ -70,7 +70,6 @@ int drawable com_facebook_top_button 0x7f020021
 int drawable com_facebook_usersettingsfragment_background_gradient 0x7f020022
 int drawable facebook 0x7f020023
 int drawable ic_launcher 0x7f020024
-int drawable icon 0x7f020025
 int id com_facebook_login_activity_progress_bar 0x7f040005
 int id com_facebook_picker_activity_circle 0x7f040004
 int id com_facebook_picker_checkbox 0x7f040007
