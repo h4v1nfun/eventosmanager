@@ -6,10 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-//import android.widget.Button;
 import android.widget.TextView;
-//import android.widget.Toast;
-
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
@@ -87,9 +84,7 @@ public class SelectionFragment extends Fragment {
 		profilePictureView = (ProfilePictureView) view.findViewById(R.id.selection_profile_pic);
 		profilePictureView.setCropped(true);
 		// find the user's name view
-		userNameView = (TextView) view.findViewById(R.id.selection_user_name);
-		//LoginButton = (LoginButton) view.findViewById(R.id.login_button);
-		
+		userNameView = (TextView) view.findViewById(R.id.selection_user_name);		
 		return view;
 	}
 	
