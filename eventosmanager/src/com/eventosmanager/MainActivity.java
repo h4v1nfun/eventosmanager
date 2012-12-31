@@ -46,7 +46,8 @@ public class MainActivity extends FragmentActivity {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(MainActivity.this, "Soon...", Toast.LENGTH_SHORT).show();			
+				//maybe change this to Create Event instead of View Event
+				Toast.makeText(MainActivity.this, "TODO", Toast.LENGTH_SHORT).show();			
 			}
 		});
 
