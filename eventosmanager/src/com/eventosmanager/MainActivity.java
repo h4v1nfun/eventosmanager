@@ -16,8 +16,7 @@ import com.facebook.UiLifecycleHelper;
 
 public class MainActivity extends FragmentActivity {
 	
-	private static final int SPLASH = 0;
-	private static final int SELECTION = 1;
+	private static final int SELECTION = 0;
 	private final int FRAGMENT_COUNT = SELECTION + 1;
 	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
 	private boolean isResumed = false;
@@ -41,7 +40,6 @@ public class MainActivity extends FragmentActivity {
 		
 		setContentView(R.layout.main); 
 		FragmentManager fm = getSupportFragmentManager();
-		fragments[SPLASH] = fm.findFragmentById(R.id.splashFragment);
 		fragments[SELECTION] = fm.findFragmentById(R.id.selectionFragment);
 		eventButtonView = (Button) findViewById(R.id.eventButtonView);
 		eventButtonView.setOnClickListener(new View.OnClickListener() {
