@@ -16,7 +16,7 @@
 
     <Button
         android:id="@+id/eventButtonView"
-        android:layout_width="172dp"
+        android:layout_width="171dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/login_button"
         android:layout_centerHorizontal="true"

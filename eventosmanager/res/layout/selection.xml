@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/selection_user_name"
             android:textColor="#FFF"
-            android:textSize="28sp" />
+            android:textSize="30sp" />
         
         </TableRow>
 	</TableLayout>

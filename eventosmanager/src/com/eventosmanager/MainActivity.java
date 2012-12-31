@@ -95,15 +95,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onResumeFragments() {
 		super.onResumeFragments();
-		//Session session = Session.getActiveSession();
 		showFragment(SELECTION, false);
-		//if (session != null && session.isOpened()) {
-			// if the session is allready open show selection fragment
-		//	showFragment(SELECTION, false);
-		//} else {
-			// otherwise show the splash screen
-			//showFragment(SPLASH, false);
-		//}
 	}
 	
 
@@ -119,14 +111,6 @@ public class MainActivity extends FragmentActivity {
 				manager.popBackStack();
 			}
 			showFragment(SELECTION, false);
-			//if (state.isOpened()) {
-				// if session state is open show the authenticated fragment
-			//	showFragment(SELECTION, false);
-			//} else if (state.isClosed()) {
-				// if session state is closed show the login fragment
-			//	showFragment(SELECTION, false);
-				//showFragment(SPLASH, false);
-			//}
 		}
 	}
 	

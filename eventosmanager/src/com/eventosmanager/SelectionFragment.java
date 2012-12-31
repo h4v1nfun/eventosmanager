@@ -80,7 +80,7 @@ public class SelectionFragment extends Fragment {
 			makeMeRequest(session);
 		}
 		
-		// find the user's profile picture custom view
+		// find the user's profile picture
 		profilePictureView = (ProfilePictureView) view.findViewById(R.id.selection_profile_pic);
 		profilePictureView.setCropped(true);
 		// find the user's name view
