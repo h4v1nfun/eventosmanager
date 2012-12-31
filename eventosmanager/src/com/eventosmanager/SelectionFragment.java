@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -21,6 +23,7 @@ public class SelectionFragment extends Fragment {
 	private static final int REAUTH_ACTIVITY_CODE = 100;
 	private ProfilePictureView profilePictureView;
 	private TextView userNameView;
+	private Button eventButtonView;
 	private UiLifecycleHelper uiHelper;
 	private Session.StatusCallback callback = new Session.StatusCallback() {
 	    @Override
@@ -85,6 +88,15 @@ public class SelectionFragment extends Fragment {
 		profilePictureView.setCropped(true);
 		// find the user's name view
 		userNameView = (TextView) view.findViewById(R.id.selection_user_name);
+		//LoginButton = (LoginButton) view.findViewById(R.id.login_button);
+		eventButtonView = (Button) view.findViewById(R.id.eventButtonView);
+		eventButtonView.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getActivity(), "Later", Toast.LENGTH_SHORT).show();			
+			}
+		});
 		return view;
 	}
 	

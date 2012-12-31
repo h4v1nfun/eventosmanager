@@ -6,8 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Menu;
-import android.view.MenuItem;
+//import android.view.Menu;
+//import android.view.MenuItem;
 
 import com.facebook.Session;
 import com.facebook.SessionState;
@@ -21,7 +21,7 @@ public class MainActivity extends FragmentActivity {
 	private static final int SETTINGS = 2;
 	private final int FRAGMENT_COUNT = SETTINGS + 1;
 	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
-	private MenuItem settings;
+	//private MenuItem settings;
 	private boolean isResumed = false;
 	private UiLifecycleHelper uiHelper;
 	private Session.StatusCallback callback = new Session.StatusCallback() {
@@ -45,6 +45,7 @@ public class MainActivity extends FragmentActivity {
 		fragments[SPLASH] = fm.findFragmentById(R.id.splashFragment);
 		fragments[SELECTION] = fm.findFragmentById(R.id.selectionFragment);
 		fragments[SETTINGS] = fm.findFragmentById(R.id.userSettingsFragment);
+
 		
 		FragmentTransaction transaction = fm.beginTransaction();
 		for (int i = 0; i < fragments.length; i++) {
@@ -88,40 +89,40 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onResumeFragments() {
 		super.onResumeFragments();
-		Session session = Session.getActiveSession();
-		
-		if (session != null && session.isOpened()) {
+		//Session session = Session.getActiveSession();
+		showFragment(SELECTION, false);
+		//if (session != null && session.isOpened()) {
 			// if the session is allready open show selection fragment
-			showFragment(SELECTION, false);
-		} else {
+		//	showFragment(SELECTION, false);
+		//} else {
 			// otherwise show the splash screen
-			showFragment(SPLASH, false);
-		}
+			//showFragment(SPLASH, false);
+		//}
 	}
 	
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
+	//@Override
+	//public boolean onPrepareOptionsMenu(Menu menu) {
 		// only add the menu when the selection fragment is showing
-		if (fragments[SELECTION].isVisible()) {
-			if (menu.size() == 0) {
-				settings = menu.add(R.string.settings);
-			}
-			return true;
-		} else {
-			menu.clear();
-			settings = null;
-		}
-		return false;
-	}
+	//	if (fragments[SELECTION].isVisible()) {
+		//	if (menu.size() == 0) {
+			//	settings = menu.add(R.string.settings);
+		//	}
+		//	return true;
+		//} else {
+		//	menu.clear();
+		//	settings = null;
+		//}
+		//return false;
+	//}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.equals(settings)) {
-			showFragment(SETTINGS, true);
-			return true;
-		}
-		return false;
-	}
+	//@Override
+	//public boolean onOptionsItemSelected(MenuItem item) {
+		//if (item.equals(settings)) {
+			//showFragment(SETTINGS, true);
+			//return true;
+		//}
+		//return false;
+	//}
 	
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
 		// only make changes if the activity is visible
@@ -133,13 +134,15 @@ public class MainActivity extends FragmentActivity {
 			for (int i = 0; i < backStackSize; i++) {
 				manager.popBackStack();
 			}
-			if (state.isOpened()) {
+			showFragment(SELECTION, false);
+			//if (state.isOpened()) {
 				// if session state is open show the authenticated fragment
-				showFragment(SELECTION, false);
-			} else if (state.isClosed()) {
+			//	showFragment(SELECTION, false);
+			//} else if (state.isClosed()) {
 				// if session state is closed show the login fragment
-				showFragment(SPLASH, false);
-			}
+			//	showFragment(SELECTION, false);
+				//showFragment(SPLASH, false);
+			//}
 		}
 	}
 	
