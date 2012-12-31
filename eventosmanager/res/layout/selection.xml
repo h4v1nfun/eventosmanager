@@ -32,31 +32,4 @@
         </TableRow>
 	</TableLayout>
 
-
-    <com.facebook.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="346dp"
-        android:layout_height="1dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1"
-
-        android:src="@android:drawable/screen_background_dark" />
-
-    <Button
-        android:id="@+id/eventButtonView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/login_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="64dp"
-        android:text="View Events" />
-
 </RelativeLayout>
