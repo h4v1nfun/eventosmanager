@@ -6,5 +6,6 @@
     <string name="get_started" translatable="false">To get started, log in using Facebook</string>
     <string name="settings" translatable="false">Settings</string>
     <string name="event_view" translatale="false">View Events</string>
+    <string name="event_create" translatable="false">Create Events</string>
 
 </resources>

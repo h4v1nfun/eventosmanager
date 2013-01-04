@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
+import com.facebook.widget.LoginButton;
 
 
 public class MainActivity extends FragmentActivity {
@@ -21,6 +22,8 @@ public class MainActivity extends FragmentActivity {
 	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
 	private boolean isResumed = false;
 	private Button eventButtonView;
+	private Button eventButtonCreate;
+	private LoginButton authFbButton;
 	private UiLifecycleHelper uiHelper;
 	private Session.StatusCallback callback = new Session.StatusCallback() {
 		
@@ -42,15 +45,38 @@ public class MainActivity extends FragmentActivity {
 		FragmentManager fm = getSupportFragmentManager();
 		fragments[SELECTION] = fm.findFragmentById(R.id.selectionFragment);
 		eventButtonView = (Button) findViewById(R.id.eventButtonView);
+		eventButtonCreate = (Button) findViewById(R.id.eventButtonCreate);
+		Session session = Session.getActiveSession();
+		
+		if (session != null && session.isOpened()) {
+			// show the event managment buttons
+			eventButtonView.setVisibility(View.VISIBLE);
+			eventButtonCreate.setVisibility(View.VISIBLE);
+		} else {
+			eventButtonView.setVisibility(View.INVISIBLE);
+			eventButtonCreate.setVisibility(View.INVISIBLE);
+		}
+		
+		authFbButton = (LoginButton) findViewById(R.id.authFb_button);
+		authFbButton.setApplicationId(getString(R.string.app_id));
+		
 		eventButtonView.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				//maybe change this to Create Event instead of View Event
-				Toast.makeText(MainActivity.this, "TODO", Toast.LENGTH_SHORT).show();			
+				// view event button
+				Toast.makeText(MainActivity.this, "TODO view events", Toast.LENGTH_SHORT).show();			
 			}
 		});
-
+		
+		eventButtonCreate.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// cretae event button
+				Toast.makeText(MainActivity.this, "TODO create events", Toast.LENGTH_SHORT).show();
+			}
+		});
 		
 		FragmentTransaction transaction = fm.beginTransaction();
 		for (int i = 0; i < fragments.length; i++) {
@@ -101,6 +127,17 @@ public class MainActivity extends FragmentActivity {
 	
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
 		// only make changes if the activity is visible
+		if (state.isOpened()) {
+			// logged in
+			// put event managment buttons visible
+			eventButtonView.setVisibility(View.VISIBLE);
+			eventButtonCreate.setVisibility(View.VISIBLE);
+		} else if (state.isClosed()) {
+			// logged out
+			// hide the buttons
+			eventButtonView.setVisibility(View.INVISIBLE);
+			eventButtonCreate.setVisibility(View.INVISIBLE);
+		}
 		if (isResumed) {
 			FragmentManager manager = getSupportFragmentManager();
 			// get the number of entries in the back stack
@@ -128,4 +165,5 @@ public class MainActivity extends FragmentActivity {
 		}
 		transaction.commit();
 	}
+	
 }

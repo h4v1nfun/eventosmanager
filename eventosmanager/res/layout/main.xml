@@ -10,27 +10,39 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
 
-	<RelativeLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent" >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 
-    <Button
-        android:id="@+id/eventButtonView"
-        android:layout_width="171dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/login_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="48dp"
-        android:gravity="center"
-        android:text="@string/event_view" />
-    
-    <com.facebook.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/eventButtonView"
-        android:layout_alignRight="@+id/eventButtonView"
-        android:layout_centerVertical="true" />
+        <Button
+            android:id="@+id/eventButtonView"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/authFb_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="48dp"
+            android:gravity="center"
+            android:text="@string/event_view" />
+
+        <com.facebook.widget.LoginButton
+            android:id="@+id/authFb_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/eventButtonView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/eventButtonView"
+            android:layout_marginBottom="49dp" />
+
+        <Button
+            android:id="@+id/eventButtonCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/eventButtonView"
+            android:layout_alignLeft="@+id/eventButtonView"
+            android:layout_alignRight="@+id/eventButtonView"
+            android:layout_marginBottom="30dp"
+            android:text="@string/event_create" />
 
     </RelativeLayout>
+
 </LinearLayout>
