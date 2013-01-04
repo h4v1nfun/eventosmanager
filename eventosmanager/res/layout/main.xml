@@ -33,15 +33,6 @@
             android:layout_alignRight="@+id/eventButtonView"
             android:layout_marginBottom="49dp" />
 
-        <Button
-            android:id="@+id/eventButtonCreate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/eventButtonView"
-            android:layout_alignLeft="@+id/eventButtonView"
-            android:layout_alignRight="@+id/eventButtonView"
-            android:layout_marginBottom="30dp"
-            android:text="@string/event_create" />
 
     </RelativeLayout>
 

@@ -231,15 +231,16 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f040017;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f040015;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f040016;
-        public static final int eventButtonCreate=0x7f04001b;
+        public static final int createEvent=0x7f04001e;
         public static final int eventButtonView=0x7f040019;
         public static final int large=0x7f040002;
+        public static final int listEvent=0x7f04001d;
         public static final int normal=0x7f040001;
         public static final int picker_subtitle=0x7f040014;
         public static final int search_box=0x7f040013;
         public static final int selectionFragment=0x7f040018;
-        public static final int selection_profile_pic=0x7f04001c;
-        public static final int selection_user_name=0x7f04001d;
+        public static final int selection_profile_pic=0x7f04001b;
+        public static final int selection_user_name=0x7f04001c;
         public static final int small=0x7f040000;
     }
     public static final class layout {
@@ -258,6 +259,9 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment=0x7f03000c;
         public static final int main=0x7f03000d;
         public static final int selection=0x7f03000e;
+    }
+    public static final class menu {
+        public static final int eventmenu=0x7f090000;
     }
     public static final class string {
         public static final int app_id=0x7f05001a;
@@ -287,9 +291,10 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_log_in_button=0x7f050008;
         public static final int com_facebook_usersettingsfragment_logged_in=0x7f050009;
         public static final int com_facebook_usersettingsfragment_not_logged_in=0x7f05000a;
-        public static final int event_create=0x7f05001e;
+        public static final int createEvent=0x7f05001f;
         public static final int event_view=0x7f05001d;
         public static final int get_started=0x7f05001b;
+        public static final int listEvent=0x7f05001e;
         public static final int settings=0x7f05001c;
     }
     public static final class style {

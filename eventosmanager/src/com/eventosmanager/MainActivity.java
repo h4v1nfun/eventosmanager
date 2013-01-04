@@ -6,7 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+//import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
 import android.widget.Toast;
 import com.facebook.Session;
@@ -22,7 +27,6 @@ public class MainActivity extends FragmentActivity {
 	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
 	private boolean isResumed = false;
 	private Button eventButtonView;
-	private Button eventButtonCreate;
 	private LoginButton authFbButton;
 	private UiLifecycleHelper uiHelper;
 	private Session.StatusCallback callback = new Session.StatusCallback() {
@@ -41,20 +45,18 @@ public class MainActivity extends FragmentActivity {
 		uiHelper = new UiLifecycleHelper(this, callback);
 		uiHelper.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.main); 
+		setContentView(R.layout.main);
+		
 		FragmentManager fm = getSupportFragmentManager();
 		fragments[SELECTION] = fm.findFragmentById(R.id.selectionFragment);
 		eventButtonView = (Button) findViewById(R.id.eventButtonView);
-		eventButtonCreate = (Button) findViewById(R.id.eventButtonCreate);
 		Session session = Session.getActiveSession();
 		
 		if (session != null && session.isOpened()) {
-			// show the event managment buttons
+			// show the event managment button
 			eventButtonView.setVisibility(View.VISIBLE);
-			eventButtonCreate.setVisibility(View.VISIBLE);
 		} else {
 			eventButtonView.setVisibility(View.INVISIBLE);
-			eventButtonCreate.setVisibility(View.INVISIBLE);
 		}
 		
 		authFbButton = (LoginButton) findViewById(R.id.authFb_button);
@@ -64,17 +66,11 @@ public class MainActivity extends FragmentActivity {
 			
 			@Override
 			public void onClick(View v) {
-				// view event button
-				Toast.makeText(MainActivity.this, "TODO view events", Toast.LENGTH_SHORT).show();			
-			}
-		});
-		
-		eventButtonCreate.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// cretae event button
-				Toast.makeText(MainActivity.this, "TODO create events", Toast.LENGTH_SHORT).show();
+				// manage event button
+				// show context menu in short press
+				registerForContextMenu(v);
+				openContextMenu(v);
+				unregisterForContextMenu(v);
 			}
 		});
 		
@@ -123,20 +119,45 @@ public class MainActivity extends FragmentActivity {
 		showFragment(SELECTION, false);
 	}
 	
-
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+		// context Menu Creation
+		// menu options in eventmenu.xml
+		super.onCreateContextMenu(menu, v, menuInfo);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.eventmenu, menu);
+	}
 	
-	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		// context Menu Item selection
+		//AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+		switch (item.getItemId()) {
+		case R.id.listEvent:
+		{
+			Toast.makeText(MainActivity.this, "TODO list events", Toast.LENGTH_SHORT).show();
+			return true;
+		}
+		case R.id.createEvent:
+		{
+			Toast.makeText(MainActivity.this, "TODO create events", Toast.LENGTH_SHORT).show();
+			return true;
+		}
+		default:
+			return super.onContextItemSelected(item);
+		}
+	}
+	
+	public void onSessionStateChange(Session session, SessionState state, Exception exception) {
 		// only make changes if the activity is visible
 		if (state.isOpened()) {
 			// logged in
-			// put event managment buttons visible
+			// put event managment button visible
 			eventButtonView.setVisibility(View.VISIBLE);
-			eventButtonCreate.setVisibility(View.VISIBLE);
 		} else if (state.isClosed()) {
 			// logged out
-			// hide the buttons
+			// hide the button
 			eventButtonView.setVisibility(View.INVISIBLE);
-			eventButtonCreate.setVisibility(View.INVISIBLE);
 		}
 		if (isResumed) {
 			FragmentManager manager = getSupportFragmentManager();
@@ -165,5 +186,4 @@ public class MainActivity extends FragmentActivity {
 		}
 		transaction.commit();
 	}
-	
 }
