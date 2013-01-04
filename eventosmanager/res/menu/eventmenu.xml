@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/listEvent"
+        android:title="@string/listEvent"
+        android:showAsAction="ifRoom">
+    </item>
+	<item android:id="@+id/createEvent"
+	    android:title="@string/createEvent"
+	    android:showAsAction="ifRoom">
+	</item>
+</menu>
