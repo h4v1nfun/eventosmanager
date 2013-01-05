@@ -26,6 +26,7 @@ public class MainActivity extends FragmentActivity {
 	private final int FRAGMENT_COUNT = SELECTION + 1;
 	private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
 	private boolean isResumed = false;
+	private boolean isLogged = false;
 	private Button eventButtonView;
 	private LoginButton authFbButton;
 	private UiLifecycleHelper uiHelper;
@@ -54,9 +55,11 @@ public class MainActivity extends FragmentActivity {
 		
 		if (session != null && session.isOpened()) {
 			// show the event managment button
-			eventButtonView.setVisibility(View.VISIBLE);
+			isLogged = true;
+			showButton(isLogged);
 		} else {
-			eventButtonView.setVisibility(View.INVISIBLE);
+			isLogged = false;
+			showButton(isLogged);
 		}
 		
 		authFbButton = (LoginButton) findViewById(R.id.authFb_button);
@@ -153,11 +156,13 @@ public class MainActivity extends FragmentActivity {
 		if (state.isOpened()) {
 			// logged in
 			// put event managment button visible
-			eventButtonView.setVisibility(View.VISIBLE);
+			isLogged = true;
+			showButton(isLogged);
 		} else if (state.isClosed()) {
 			// logged out
 			// hide the button
-			eventButtonView.setVisibility(View.INVISIBLE);
+			isLogged = false;
+			showButton(isLogged);
 		}
 		if (isResumed) {
 			FragmentManager manager = getSupportFragmentManager();
@@ -185,5 +190,14 @@ public class MainActivity extends FragmentActivity {
 			transaction.addToBackStack(null);
 		}
 		transaction.commit();
+	}
+	
+	private void showButton (boolean logged) {
+		// show or hides the logged in interface
+		if (logged == true) {
+			eventButtonView.setVisibility(View.VISIBLE);
+		} else if (logged == false) {
+			eventButtonView.setVisibility(View.INVISIBLE);
+		}
 	}
 }
