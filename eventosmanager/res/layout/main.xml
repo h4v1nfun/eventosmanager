@@ -5,33 +5,55 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <fragment android:name="com.eventosmanager.SelectionFragment"
-          android:id="@+id/selectionFragment"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content" />
-
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="397dp" >
+
+        <Button
+            android:id="@+id/aboutView"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/eventButtonView"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="@string/aboutButton" />
 
         <Button
             android:id="@+id/eventButtonView"
             android:layout_width="171dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/authFb_button"
+            android:layout_above="@+id/aboutView"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="24dp"
             android:gravity="center"
             android:text="@string/event_view" />
 
-        <com.facebook.widget.LoginButton
-            android:id="@+id/authFb_button"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/loginView"
+            android:layout_width="171dp"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/eventButtonView"
             android:layout_alignLeft="@+id/eventButtonView"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/eventButtonView"
-            android:layout_marginBottom="47dp" />
+            android:layout_marginBottom="17dp"
+            android:gravity="center"
+            android:text="@string/loginButton" />
+
+        <com.facebook.widget.LoginButton
+            android:id="@+id/authFbbutton"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/loginView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp" />
+
+        <fragment
+            android:id="@+id/selectionFragment"
+            android:name="com.eventosmanager.SelectionFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
 
     </RelativeLayout>
 

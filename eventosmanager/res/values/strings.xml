@@ -6,7 +6,12 @@
     <string name="get_started" translatable="false">To get started, log in using Facebook</string>
     <string name="settings" translatable="false">Settings</string>
     <string name="event_view" translatale="false">Manage Events</string>
+    <string name="aboutButton" translatable="false">About</string>
     <string name="listEvent" translatable="false">List Events</string>
     <string name="createEvent" translatable="false">Create Events</string>
+    <string name="aboutme" translatable="false">Afonso Neto</string>
+    <string name="goback" translatable="false">Go Back</string>
+    <string name="facebook" translatable="false">facebook</string>
+    <string name="loginButton" translatable="false">Login</string>
 
 </resources>

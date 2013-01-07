@@ -1,5 +1,7 @@
 package com.eventosmanager;
 
+//import java.util.Arrays;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -28,6 +30,8 @@ public class MainActivity extends FragmentActivity {
 	private boolean isResumed = false;
 	private boolean isLogged = false;
 	private Button eventButtonView;
+	private Button aboutButton;
+	private Button loginButton;
 	private LoginButton authFbButton;
 	private UiLifecycleHelper uiHelper;
 	private Session.StatusCallback callback = new Session.StatusCallback() {
@@ -51,6 +55,8 @@ public class MainActivity extends FragmentActivity {
 		FragmentManager fm = getSupportFragmentManager();
 		fragments[SELECTION] = fm.findFragmentById(R.id.selectionFragment);
 		eventButtonView = (Button) findViewById(R.id.eventButtonView);
+		aboutButton = (Button) findViewById(R.id.aboutView);
+		loginButton = (Button) findViewById(R.id.loginView);
 		Session session = Session.getActiveSession();
 		
 		if (session != null && session.isOpened()) {
@@ -62,9 +68,11 @@ public class MainActivity extends FragmentActivity {
 			showButton(isLogged);
 		}
 		
-		authFbButton = (LoginButton) findViewById(R.id.authFb_button);
+		authFbButton = (LoginButton) findViewById(R.id.authFbbutton);
 		authFbButton.setApplicationId(getString(R.string.app_id));
-		
+		authFbButton.setVisibility(View.INVISIBLE);
+		//authFbButton.setReadPermissions(Arrays.asList("user_status", "user_events"));
+
 		eventButtonView.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -74,6 +82,32 @@ public class MainActivity extends FragmentActivity {
 				registerForContextMenu(v);
 				openContextMenu(v);
 				unregisterForContextMenu(v);
+			}
+		});
+		
+		aboutButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// about Button
+				// start about activity
+				Intent intent = new Intent(getApplicationContext(), com.eventosmanager.AboutActivity.class);
+				
+				startActivity(intent);
+				
+			}
+		});
+		
+		loginButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// about Button
+				// start about activity
+				Intent intent = new Intent(getApplicationContext(), com.eventosmanager.LoginActivity.class);
+				
+				startActivity(intent);
+				
 			}
 		});
 		
@@ -196,8 +230,10 @@ public class MainActivity extends FragmentActivity {
 		// show or hides the logged in interface
 		if (logged == true) {
 			eventButtonView.setVisibility(View.VISIBLE);
+			loginButton.setText("Log Out");
 		} else if (logged == false) {
 			eventButtonView.setVisibility(View.INVISIBLE);
+			loginButton.setText("Login");
 		}
 	}
 }
