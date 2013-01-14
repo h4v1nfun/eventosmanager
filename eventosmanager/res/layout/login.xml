@@ -14,18 +14,18 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.29"
-        android:contentDescription="@string/facebook"
-        android:scaleType="centerInside"
-        android:src="@drawable/facebook" />
-
-    <com.facebook.widget.LoginButton
-        android:id="@+id/authFbbutton"
-        android:layout_width="141dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="47dp" />
+        android:contentDescription="@string/facebook"
+        android:scaleType="center"
+        android:src="@drawable/facebook" />
+
+    <Button
+        android:id="@+id/loginlogoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/loginButton" />
 
 </LinearLayout>

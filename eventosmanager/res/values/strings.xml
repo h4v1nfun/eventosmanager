@@ -13,5 +13,9 @@
     <string name="goback" translatable="false">Go Back</string>
     <string name="facebook" translatable="false">facebook</string>
     <string name="loginButton" translatable="false">Login</string>
-
+    <string name="logoutButton" translatable="false">Logout</string>
+    <string name="error" translatable="false">Error</string>
+    <string name="netDownText" translatable="false">Internet is down, need internet to use this app</string>
+    <string name="exitMsgT" translatable="false">Exit</string>
+    <string name="exitMsg" translatable="false">Are you sure you want to exit?</string>
 </resources>

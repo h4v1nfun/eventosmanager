@@ -2,7 +2,7 @@ package com.eventosmanager;
 
 
 import android.app.Activity;
-import android.content.Intent;
+//import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.view.View;
@@ -29,9 +29,9 @@ public class AboutActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				Intent intent = new Intent(getApplicationContext(), com.eventosmanager.MainActivity.class);
+				//Intent intent = new Intent(getApplicationContext(), com.eventosmanager.MainActivity.class);
 				
-				startActivity(intent);
+				//startActivity(intent);
 				finish();
 			}
 		});
