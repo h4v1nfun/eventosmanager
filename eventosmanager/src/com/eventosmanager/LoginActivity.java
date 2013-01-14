@@ -155,7 +155,8 @@ public class LoginActivity extends Activity {
         Session session = Session.getActiveSession();
         if (!session.isClosed()) {
             session.closeAndClearTokenInformation();
-            settings.edit().clear().commit();
+            settings.edit().putBoolean(IS_LOG, false).commit();
+            //settings.edit().clear().commit();
         }
     }
         
